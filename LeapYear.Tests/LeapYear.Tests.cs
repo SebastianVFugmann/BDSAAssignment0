@@ -56,14 +56,14 @@ namespace LeapYear.Tests
         public void isABCLeapYearErrorMessagePrinted()
         {
             //Arrange
-            string[] input = new string[1];
-            input[0] = "abc";
+            StringReader stdIn = new("abc");
+            Console.SetIn(stdIn);
 
             var writer = new StringWriter();
             Console.SetOut(writer);
 
             //Act
-            Program.Main(input);
+            Program.Main(new string[0]);
             string[] output = writer.ToString().Split(Environment.NewLine);
 
             //Assert
