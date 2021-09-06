@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="BDSAAssignment0.csproj" />
+    <ProjectReference Include="..\LeapYear\LeapYear.csproj" />
   </ItemGroup>
 
 </Project>
