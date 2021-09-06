@@ -24,7 +24,7 @@ namespace LeapYear
                 }
             } else
             {
-                Console.WriteLine("The input: '" + input + "' is not a year");
+                Console.WriteLine("The input: '" + input + "' is not a valid year");
             } 
         }
 

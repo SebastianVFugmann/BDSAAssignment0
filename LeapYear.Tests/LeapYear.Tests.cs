@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using LeapYear;
+using System.IO;
 
 namespace LeapYear.Tests
 {
@@ -50,18 +51,23 @@ namespace LeapYear.Tests
             //Act + Assert
             Assert.Throws<YearToEarlyException>(() => Program.IsLeapYear(1500));
         }
-        /*
+        
         [Fact]
         public void isABCLeapYearErrorMessagePrinted()
         {
             //Arrange
-            var input = "abc";
+            string[] input = new string[1];
+            input[0] = "abc";
+
+            var writer = new StringWriter();
+            Console.SetOut(writer);
 
             //Act
-            YearToEarlyException exception = Assert.Throws<YearToEarlyException>(Program.IsLeapYear(input));
+            Program.Main(input);
+            string[] output = writer.ToString().Split(Environment.NewLine);
 
-            //The thrown exception can be used for even more detailed assertions.
-            Assert.Equal("YearToEarlyException: 1500 is earlier than 1582, so it can't be a leap year", exception.Message);
-        }*/
+            //Assert
+            Assert.Equal("The input: 'abc' is not a valid year", output[1].Trim());
+        }
     }
 }
